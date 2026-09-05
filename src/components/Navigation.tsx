@@ -33,9 +33,9 @@ export default function Navigation() {
             ))}
             <a
               href="#live"
-              className="inline-flex items-center gap-1.5 font-bold text-red-600 hover:text-red-700 transition-colors"
+              className="inline-flex items-center gap-1.5 font-bold text-gray-400 hover:text-gray-500 transition-colors"
             >
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse inline-block" />
+              <span className="w-2 h-2 rounded-full bg-gray-400 inline-block" />
               Live
             </a>
             <a

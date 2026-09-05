@@ -241,8 +241,8 @@ export default function Gallery() {
                 <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-5">
                   <Images className="w-9 h-9 text-gray-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-700 mb-2">Gallery Coming Soon</h3>
-                <p className="text-gray-400">Photos will appear here after the event. Check back soon!</p>
+                <h3 className="text-xl font-bold text-gray-700 mb-2">Event Photos Coming Soon</h3>
+                <p className="text-gray-400">Event photos are being processed and will be added here soon.</p>
               </div>
             ) : (
               <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-0">

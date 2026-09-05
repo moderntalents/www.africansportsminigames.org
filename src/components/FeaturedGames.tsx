@@ -139,7 +139,7 @@ export default function FeaturedGames() {
 
                 <div className="mt-auto px-6 pb-6 pt-2">
                   <a
-                    href="#contact"
+                    href="#register"
                     className="w-full bg-green-600 hover:bg-green-700 active:bg-green-800 text-white py-2.5 rounded-xl text-sm font-semibold text-center transition-colors block"
                   >
                     Register Now

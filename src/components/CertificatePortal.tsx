@@ -11,7 +11,6 @@ const SPORTS = [
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeevakde';
 
 const MOCK_CERTIFICATES: Record<string, Certificate> = {
-  'ASMG-2026-00001': { certificate_id: 'ASMG-2026-00001', holder_name: 'Amara Diallo', sport: 'Football', issue_date: '2026-01-15', expiry_date: null, status: 'valid' },
   'ASMG-2026-00002': { certificate_id: 'ASMG-2026-00002', holder_name: 'Chisom Okafor', sport: 'Swimming', issue_date: '2026-01-15', expiry_date: null, status: 'valid' },
   'ASMG-2026-00003': { certificate_id: 'ASMG-2026-00003', holder_name: 'Kofi Asante', sport: 'Chess', issue_date: '2026-01-20', expiry_date: null, status: 'valid' },
   'ASMG-2026-00004': { certificate_id: 'ASMG-2026-00004', holder_name: 'Fatima Nkosi', sport: 'Classical Ballet', issue_date: '2026-01-20', expiry_date: null, status: 'valid' },

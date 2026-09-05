@@ -26,14 +26,16 @@ const BENEFITS = [
 ];
 
 const SPORTS = [
-  'Martial Arts',
-  'Classical Ballet',
-  'Modern Dance',
-  'Athletics',
-  'Swimming',
   'Football',
-  'Basketball',
-  'Volleyball',
+  'Martial Arts',
+  'Swimming',
+  'Rugby',
+  'Athletics',
+  'Chess',
+  'Archery',
+  'Gymnastics',
+  'Modern Dance',
+  'Skating',
   'Other',
 ];
 

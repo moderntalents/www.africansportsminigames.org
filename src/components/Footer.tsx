@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { Facebook, Twitter, Instagram, Youtube, Mail } from 'lucide-react';
+import RulesModal from './RulesModal';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [showRules, setShowRules] = useState(false);
 
   return (
     <footer className="bg-gray-900 text-white">
+      {showRules && <RulesModal onClose={() => setShowRules(false)} />}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -52,7 +56,11 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">
+                <a
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); setShowRules(true); }}
+                  className="text-gray-400 hover:text-green-400 transition-colors"
+                >
                   Rules & Regulations
                 </a>
               </li>
@@ -62,7 +70,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">
+                <a
+                  href="/MASF_Mini_Games_Schedule.pdf"
+                  download="MASF_Mini_Games_Schedule.pdf"
+                  className="text-gray-400 hover:text-green-400 transition-colors"
+                >
                   Downloads
                 </a>
               </li>
@@ -117,7 +129,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              {currentYear} African Sports Mini Games. All rights reserved.
+              &copy; {currentYear} African Sports Mini Games. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">
@@ -132,7 +144,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="text-center text-gray-500 text-xs mt-4">
-            Organized by KKF, Kumbo, Tawi Global, ILSKF
+            Organized by KKF, Kumbo, ILKSF &amp; Tawi Global
           </p>
         </div>
       </div>

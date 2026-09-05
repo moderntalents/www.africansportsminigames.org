@@ -3,15 +3,16 @@ import { CheckCircle, AlertCircle, User, Mail, Dumbbell, Phone, ScrollText, Shie
 import RulesModal from './RulesModal';
 
 const SPORTS = [
-  'Martial Arts',
-  'Classical Ballet',
-  'Modern Dance',
-  'Athletics',
-  'Swimming',
   'Football',
-  'Basketball',
-  'Volleyball',
+  'Martial Arts',
+  'Swimming',
+  'Rugby',
+  'Athletics',
   'Chess',
+  'Archery',
+  'Gymnastics',
+  'Modern Dance',
+  'Skating',
   'Other',
 ];
 
@@ -125,7 +126,7 @@ export default function RegistrationForm() {
             Athlete Registration
           </h2>
           <p className="text-lg text-gray-500 mb-5">
-            Complete your registration below. Registration is free.
+            Registration for our July 25th, 2026 event is now closed. Leave your details below and we'll notify you about future editions.
           </p>
           <button
             type="button"

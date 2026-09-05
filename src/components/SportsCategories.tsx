@@ -78,7 +78,7 @@ export default function SportsCategories() {
           <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 max-w-2xl w-full text-center shadow-sm">
             <div className="flex items-center justify-center gap-2 mb-1">
               <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse inline-block"></span>
-              <span className="text-amber-700 font-bold text-sm uppercase tracking-wide">Next Event</span>
+              <span className="text-amber-700 font-bold text-sm uppercase tracking-wide">Latest Event</span>
             </div>
             <p className="text-gray-900 font-bold text-lg">{JULY_EVENT_DATE} &mdash; {JULY_EVENT_VENUE}</p>
             <p className="text-gray-500 text-sm mt-1">

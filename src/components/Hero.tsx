@@ -1,36 +1,6 @@
-import { Calendar, MapPin, Users, Trophy } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Calendar, MapPin, Users, CheckCircle } from 'lucide-react';
 
 export default function Hero() {
-  const [countdown, setCountdown] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    const eventDate = new Date('2026-07-25T08:00:00');
-
-    const updateCountdown = () => {
-      const now = new Date();
-      const difference = eventDate.getTime() - now.getTime();
-
-      if (difference > 0) {
-        setCountdown({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      }
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-50 via-white to-yellow-50 pt-20">
@@ -75,30 +45,14 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <div className="text-4xl font-bold text-green-600 mb-2">
-              {countdown.days}
+        <div className="mb-16">
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow max-w-2xl mx-auto text-center">
+            <div className="flex justify-center mb-3">
+              <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <div className="text-gray-600 font-medium">Days</div>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <div className="text-4xl font-bold text-green-600 mb-2">
-              {countdown.hours}
-            </div>
-            <div className="text-gray-600 font-medium">Hours</div>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <div className="text-4xl font-bold text-green-600 mb-2">
-              {countdown.minutes}
-            </div>
-            <div className="text-gray-600 font-medium">Minutes</div>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <div className="text-4xl font-bold text-green-600 mb-2">
-              {countdown.seconds}
-            </div>
-            <div className="text-gray-600 font-medium">Seconds</div>
+            <p className="text-lg font-semibold text-gray-800">
+              Thank you to everyone who joined us on July 25th, 2026!
+            </p>
           </div>
         </div>
 
@@ -113,8 +67,8 @@ export default function Hero() {
           </div>
           <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
             <Users className="w-10 h-10 text-green-600 mb-3 mx-auto" />
-            <h3 className="font-bold text-gray-900 mb-2">Open Registration</h3>
-            <p className="text-gray-600 text-sm">Schools, clubs, and individuals welcome</p>
+            <h3 className="font-bold text-gray-900 mb-2">Event Completed</h3>
+            <p className="text-gray-600 text-sm">Thanks to everyone who took part.</p>
           </div>
         </div>
       </div>

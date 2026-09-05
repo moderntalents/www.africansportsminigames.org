@@ -7,7 +7,7 @@ function scrollToLearnMore() {
 
 const ORGS = [
   { name: 'International Luelmo Kenpo Studios Federation', abbr: 'ILKSF', logo: '/WhatsApp_Image_2026-04-08_at_19.38.24.jpeg', bg: 'bg-gray-900' },
-  { name: 'Kumbo Africana Combat Kenya', abbr: 'Kumbo', logo: '/WhatsApp_Image_2026-04-08_at_22.28.22.jpeg', bg: 'bg-white' },
+  { name: 'Kumbo Africana Combat Kenya', abbr: 'Kumbo', logo: '/kumbo_logo.png', bg: 'bg-white' },
   { name: 'Kenya Kenpo Federation', abbr: 'KKF', logo: '/image.png', bg: 'bg-yellow-400' },
   { name: 'Tawi Global Enrichment', abbr: 'Tawi Global', logo: '/Circular_Emblem_for_Co-Curricular_Activities.png', bg: 'bg-white' },
 ];
