@@ -24,6 +24,10 @@ export const MOCK_CERTIFICATES: Record<string, Certificate> = {
   'ASMG-2026-00006': cert('ASMG-2026-00006', 'Nathan Baraka', 'Participant'),
   'ASMG-2026-00007': cert('ASMG-2026-00007', 'Lemayian Kiplagat', 'Participant'),
 
+  // Additional records
+  'ASMG-2026-00009': cert('ASMG-2026-00009', 'Taji Njoroge', 'Participant'),
+  'ASMG-2026-00010': cert('ASMG-2026-00010', 'Renson Muchina', 'Participant'),
+
   // coach atila.docx - Club: FFK -Atila
   'ASMG-2026-00013': cert('ASMG-2026-00013', 'Julian Jayvelle', 'Sparring'),
   'ASMG-2026-00014': cert('ASMG-2026-00014', 'Falton Mwariga', 'Sparring'),
