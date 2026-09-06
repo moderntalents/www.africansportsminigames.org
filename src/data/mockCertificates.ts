@@ -228,6 +228,24 @@ export const MOCK_CERTIFICATES: Record<string, Certificate> = {
   'ASMG-2026-00271': cert('ASMG-2026-00271', 'Adrian Nyapinda', 'Sparring'),
   'ASMG-2026-00272': cert('ASMG-2026-00272', 'Tyrel Mokaya', 'Sparring'),
   'ASMG-2026-00273': cert('ASMG-2026-00273', 'Emmanuel Njuguna', 'Sparring'),
+
+  // New batch - 25 July 2026
+  'ASMG-2026-00070': cert('ASMG-2026-00070', 'Brandon Kisko', 'Participant'),
+  'ASMG-2026-00071': cert('ASMG-2026-00071', 'Riaan Gitonga', 'Participant'),
+  'ASMG-2026-00072': cert('ASMG-2026-00072', 'Andy Gakii', 'Participant'),
+  'ASMG-2026-00073': cert('ASMG-2026-00073', 'Natalia Muthoni', 'Participant'),
+  'ASMG-2026-00074': cert('ASMG-2026-00074', 'Jessicah Joy', 'Participant'),
+  'ASMG-2026-00281': cert('ASMG-2026-00281', 'Matthias Maina', 'Participant'),
+  'ASMG-2026-00282': cert('ASMG-2026-00282', 'Marcos Githuku', 'Participant'),
+  'ASMG-2026-00283': cert('ASMG-2026-00283', 'Celine Muthoni', 'Participant'),
+  'ASMG-2026-00284': cert('ASMG-2026-00284', 'Israel Muchira', 'Participant'),
+  'ASMG-2026-00285': cert('ASMG-2026-00285', 'Jayden Osawa', 'Participant'),
+  'ASMG-2026-00286': cert('ASMG-2026-00286', 'Kylian Okeyo', 'Participant'),
+  'ASMG-2026-00287': cert('ASMG-2026-00287', 'Trizah Wangari', 'Participant'),
+  'ASMG-2026-00288': cert('ASMG-2026-00288', 'Ben Gideon', 'Participant'),
+  'ASMG-2026-00289': cert('ASMG-2026-00289', 'Franklin Jobs', 'Participant'),
+  'ASMG-2026-00290': cert('ASMG-2026-00290', 'Precious Angel', 'Participant'),
+  'ASMG-2026-00291': cert('ASMG-2026-00291', 'Liam Kamau', 'Participant'),
 };
 
 // Name lookup index (lowercase name -> certificate)
