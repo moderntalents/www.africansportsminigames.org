@@ -17,7 +17,7 @@ export default function Navigation() {
             <img
               src="/logo_canva.png"
               alt="African Sports Mini Games Logo"
-              className="h-14 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
           </a>
 
