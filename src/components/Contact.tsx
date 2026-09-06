@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, MessageSquare, CheckCircle } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Mail, Phone, MapPin, MessageSquare, CheckCircle, Plus, FileText, Image as ImageIcon, X } from 'lucide-react';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeevakde';
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
@@ -15,6 +15,36 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [ticketId, setTicketId] = useState('');
   const [error, setError] = useState('');
+  const [showAttachMenu, setShowAttachMenu] = useState(false);
+  const [attachment, setAttachment] = useState<File | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const docInputRef = useRef<HTMLInputElement>(null);
+  const photoInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!showAttachMenu) return;
+    function handleClickOutside(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setShowAttachMenu(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showAttachMenu]);
+
+  function handleDocPick(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file) setAttachment(file);
+    setShowAttachMenu(false);
+    e.target.value = '';
+  }
+
+  function handlePhotoPick(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file) setAttachment(file);
+    setShowAttachMenu(false);
+    e.target.value = '';
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -24,6 +54,9 @@ export default function Contact() {
     const data = new FormData(form);
     const newTicketId = generateTicketId();
     data.append('ticket_id', newTicketId);
+    if (attachment) {
+      data.append('attachment', attachment, attachment.name);
+    }
 
     const userEmail = (data.get('email') as string) || '';
 
@@ -36,6 +69,7 @@ export default function Contact() {
 
       if (res.ok) {
         form.reset();
+        setAttachment(null);
         setTicketId(newTicketId);
         setSubmitted(true);
 
@@ -217,13 +251,82 @@ export default function Contact() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Message
                   </label>
-                  <textarea
-                    name="message"
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Your message..."
-                  />
+                  <div className="relative">
+                    <textarea
+                      name="message"
+                      required
+                      rows={5}
+                      className="w-full px-4 py-3 pb-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      placeholder="Your message..."
+                    />
+                    <div className="absolute bottom-2 left-2" ref={menuRef}>
+                      <button
+                        type="button"
+                        onClick={() => setShowAttachMenu(prev => !prev)}
+                        className="w-7 h-7 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-700 transition-colors"
+                        aria-label="Attach file"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </button>
+
+                      {showAttachMenu && (
+                        <div className="absolute bottom-9 left-0 bg-white rounded-xl shadow-xl border border-gray-200 py-1 w-48 z-10 animate-fade-in">
+                          <button
+                            type="button"
+                            onClick={() => docInputRef.current?.click()}
+                            className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 transition-colors text-left"
+                          >
+                            <FileText className="w-4 h-4 text-green-600 flex-shrink-0" />
+                            Attach Document
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => photoInputRef.current?.click()}
+                            className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 transition-colors text-left"
+                          >
+                            <ImageIcon className="w-4 h-4 text-green-600 flex-shrink-0" />
+                            Attach Photo
+                          </button>
+                        </div>
+                      )}
+
+                      <input
+                        ref={docInputRef}
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        className="hidden"
+                        onChange={handleDocPick}
+                      />
+                      <input
+                        ref={photoInputRef}
+                        type="file"
+                        accept=".jpg,.jpeg,.png,.webp"
+                        className="hidden"
+                        onChange={handlePhotoPick}
+                      />
+                    </div>
+                  </div>
+
+                  {attachment && (
+                    <div className="mt-2 inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full pl-3 pr-1.5 py-1">
+                      {attachment.type.startsWith('image/') ? (
+                        <ImageIcon className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+                      ) : (
+                        <FileText className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+                      )}
+                      <span className="text-xs font-medium text-green-800 max-w-[200px] truncate">
+                        {attachment.name}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => setAttachment(null)}
+                        className="w-5 h-5 flex items-center justify-center rounded-full hover:bg-green-200 text-green-600 transition-colors flex-shrink-0"
+                        aria-label="Remove attachment"
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
+                  )}
                 </div>
 
                 {error && (
