@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { Shield, Search, FileText, CheckCircle, AlertCircle, Loader2, Award, User, ChevronDown, Lock, BadgeCheck, Calendar } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { MOCK_CERTIFICATES, findMockByName, type Certificate } from '../data/mockCertificates';
 
 const SPORTS = [
   'Football', 'Martial Arts', 'Swimming', 'Rugby', 'Athletics',
@@ -9,22 +10,6 @@ const SPORTS = [
 ];
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeevakde';
-
-const MOCK_CERTIFICATES: Record<string, Certificate> = {
-  'ASMG-2026-00002': { certificate_id: 'ASMG-2026-00002', holder_name: 'Chisom Okafor', sport: 'Swimming', issue_date: '2026-01-15', expiry_date: null, status: 'valid' },
-  'ASMG-2026-00003': { certificate_id: 'ASMG-2026-00003', holder_name: 'Kofi Asante', sport: 'Chess', issue_date: '2026-01-20', expiry_date: null, status: 'valid' },
-  'ASMG-2026-00004': { certificate_id: 'ASMG-2026-00004', holder_name: 'Fatima Nkosi', sport: 'Classical Ballet', issue_date: '2026-01-20', expiry_date: null, status: 'valid' },
-  'ASMG-2026-00005': { certificate_id: 'ASMG-2026-00005', holder_name: 'Tendai Mwangi', sport: 'Martial Arts', issue_date: '2026-02-01', expiry_date: null, status: 'valid' },
-};
-
-type Certificate = {
-  certificate_id: string;
-  holder_name: string;
-  sport: string;
-  issue_date: string | null;
-  expiry_date: string | null;
-  status: string;
-};
 
 type Tab = 'verify' | 'request';
 
@@ -55,8 +40,9 @@ export default function CertificatePortal() {
 
   async function handleVerify(e: React.FormEvent) {
     e.preventDefault();
-    const id = searchId.trim().toUpperCase();
-    if (!id) return;
+    const query = searchId.trim();
+    if (!query) return;
+    const id = query.toUpperCase();
     setSearching(true);
     setCert(null);
 
@@ -73,7 +59,8 @@ export default function CertificatePortal() {
       return;
     }
 
-    const mock = MOCK_CERTIFICATES[id];
+    // Try mock lookup by certificate ID first, then by participant name
+    const mock = MOCK_CERTIFICATES[id] || findMockByName(query);
     if (mock) {
       setCert(mock);
     } else {
@@ -197,7 +184,7 @@ export default function CertificatePortal() {
                 <div className="flex items-start gap-3 bg-slate-700/40 border border-slate-600/40 rounded-xl p-4 mb-8">
                   <Lock className="w-4 h-4 text-slate-400 mt-0.5 shrink-0" />
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    Enter the Certificate ID printed on your ASMG certificate (e.g. <span className="font-mono text-slate-300">ASMG-2026-00001</span>) to verify its authenticity against the official registry.
+                    Enter the Certificate ID (e.g. <span className="font-mono text-slate-300">ASMG-2026-00001</span>) or the participant's name to verify its authenticity against the official registry.
                   </p>
                 </div>
 
@@ -209,7 +196,7 @@ export default function CertificatePortal() {
                       type="text"
                       value={searchId}
                       onChange={e => { setSearchId(e.target.value); setCert(null); }}
-                      placeholder="Enter Certificate ID (e.g. ASMG-2026-00001)"
+                      placeholder="Enter Certificate ID or Participant Name"
                       className="w-full bg-slate-900/60 border border-slate-600 text-white placeholder-slate-500 rounded-xl pl-11 pr-4 py-3.5 text-sm focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all font-mono"
                     />
                   </div>
