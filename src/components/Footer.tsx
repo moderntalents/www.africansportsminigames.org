@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="mb-4">
               <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
                 <img
-                  src="/African_Sports_Mini_Games_logo.png"
+                  src="/logo_canva.png"
                   alt="African Sports Mini Games Logo"
                   className="h-14 w-auto object-contain"
                 />

@@ -15,7 +15,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           <a href="#home" className="flex items-center">
             <img
-              src="/African_Sports_Mini_Games_logo.png"
+              src="/logo_canva.png"
               alt="African Sports Mini Games Logo"
               className="h-14 w-auto object-contain"
             />
