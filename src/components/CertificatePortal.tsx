@@ -139,7 +139,7 @@ export default function CertificatePortal() {
 
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-green-900/40 border border-green-700/40 rounded-full px-5 py-2 mb-6">
-            <img src="/ASMG_official_logo.png" alt="ASMG Logo" className="h-6 w-auto object-contain" />
+            <Shield className="w-4 h-4 text-green-400" />
             <span className="text-green-300 font-bold text-xs uppercase tracking-widest">Official ASMG Registry</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
@@ -462,7 +462,7 @@ export default function CertificatePortal() {
 
           <div className="border-t border-slate-700/60 px-8 py-4 bg-slate-900/40 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <img src="/ASMG_official_logo.png" alt="ASMG Logo" className="h-5 w-auto object-contain" />
+              <Shield className="w-4 h-4 text-green-500" />
               <span className="text-slate-500 text-xs">Secured by ASMG Certificate Registry System</span>
             </div>
             <div className="flex items-center gap-4 text-slate-600 text-xs">

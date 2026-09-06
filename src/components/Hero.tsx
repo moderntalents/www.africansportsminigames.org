@@ -7,10 +7,6 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(34,197,94,0.1),transparent_50%),radial-gradient(circle_at_70%_50%,rgba(234,179,8,0.1),transparent_50%)]"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <div className="flex justify-center mb-8">
-          <img src="/ASMG_official_logo.png" alt="African Sports Mini Games Logo" className="h-28 w-auto object-contain drop-shadow-lg" />
-        </div>
-
         <div className="inline-block mb-4 px-4 py-2 bg-green-100 rounded-full">
           <p className="text-green-800 font-semibold text-sm">
             Continental Youth Sports Championship 2026
