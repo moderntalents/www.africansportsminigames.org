@@ -3,9 +3,9 @@ import { Shield, Search, FileText, CheckCircle, AlertCircle, Loader2, Award, Use
 import { supabase } from '../lib/supabase';
 
 const SPORTS = [
-  'Athletics', 'Basketball', 'Classical Ballet', 'Ballet', 'Chess',
-  'Football', 'Gymnastics', 'Martial Arts', 'Modern Dance', 'Rugby',
-  'Skating', 'Swimming', 'Volleyball',
+  'Football', 'Martial Arts', 'Swimming', 'Rugby', 'Athletics',
+  'Chess', 'Archery', 'Gymnastics', 'Modern Dance', 'Skating',
+  'Other',
 ];
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeevakde';
