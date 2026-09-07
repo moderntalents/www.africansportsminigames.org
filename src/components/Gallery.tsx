@@ -23,19 +23,6 @@ interface GalleryPhoto {
 const FILTER_CATEGORIES = ['All', 'General', 'Martial Arts', 'Skating', 'Football', 'Ballet', 'Chess'] as const;
 type FilterCategory = typeof FILTER_CATEGORIES[number];
 
-const localGalleryPhotos: GalleryPhoto[] = [
-  'DSC_3870_result.jpg', 'DSC_3871_result.jpg', 'DSC_3872_result.jpg', 'DSC_3873_result.jpg',
-  'DSC_3874_result.jpg', 'DSC_3875_result.jpg', 'DSC_3876_result.jpg', 'DSC_3878_result.jpg',
-  'DSC_3879_result.jpg', 'DSC_3880_result.jpg', 'DSC_3881_result.jpg', 'DSC_3882_result.jpg',
-  'DSC_3883_result.jpg', 'DSC_3884_result.jpg', 'DSC_3885_result.jpg', 'DSC_3886_result.jpg',
-  'DSC_3887_result.jpg', 'DSC_3888_result.jpg', 'DSC_3889_result.jpg', 'DSC_3890_result.jpg',
-].map((filename, index) => ({
-  id: `local-gallery-${index}`,
-  public_url: `/gallery/${filename}`,
-  filename,
-  sport_category: 'General',
-}));
-
 async function downloadPhoto(url: string, filename: string) {
   try {
     const res = await fetch(url);
@@ -250,37 +237,13 @@ export default function Gallery() {
                 ))}
               </div>
             ) : events.length === 0 ? (
-              <>
-                <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-0">
-                  {localGalleryPhotos.map((photo, index) => (
-                    <button
-                      key={photo.id}
-                      onClick={() => { setPhotos(localGalleryPhotos); setLightboxIndex(index); }}
-                      className={`group relative w-full mb-5 overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 block ${
-                        index % 3 === 0 ? 'aspect-[4/3]' : index % 3 === 1 ? 'aspect-square' : 'aspect-[4/5]'
-                      }`}
-                    >
-                      <img
-                        src={photo.public_url}
-                        alt={`Event photo ${index + 1}`}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <div
-                          className="flex items-center gap-2 px-4 py-2 rounded-full text-white text-sm font-semibold"
-                          style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.25)' }}
-                        >
-                          <ZoomIn className="w-4 h-4" />
-                          View Photo
-                        </div>
-                      </div>
-                    </button>
-                  ))}
+              <div className="text-center py-24 bg-white rounded-3xl border border-gray-100 shadow-sm">
+                <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-5">
+                  <Images className="w-9 h-9 text-gray-300" />
                 </div>
-                <p className="mt-8 text-center text-sm text-gray-400">{localGalleryPhotos.length} event photos</p>
-              </>
+                <h3 className="text-xl font-bold text-gray-700 mb-2">Event Photos Coming Soon</h3>
+                <p className="text-gray-400">Event photos are being processed and will be added here soon.</p>
+              </div>
             ) : (
               <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-0">
                 {events.map((ev, i) => (
